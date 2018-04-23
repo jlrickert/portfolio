@@ -1,0 +1,22 @@
+{
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "rules": {
+    "max-line-length": {
+      "options": [120]
+    },
+    "indent": [true, "spaces", 2],
+    "object-literal-sort-keys": false,
+    "variable-name": [
+      true,
+      "check_format",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ],
+    "no-empty": false,
+    "no-empty-interface": false,
+    "no-console": [true, "log", { "severity": "warn" }]
+  },
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*.ts"]
+  }
+}
