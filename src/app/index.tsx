@@ -1,9 +1,9 @@
 import * as React from "react";
 import "./App.css";
 
-import Background from "./Background";
+import { Background } from "../background";
 
-class App extends React.Component<{}, {}> {
+export class App extends React.Component<{}, {}> {
   public render() {
     return (
       <div className="App">
