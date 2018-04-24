@@ -6,6 +6,7 @@
     },
     "indent": [true, "spaces", 2],
     "object-literal-sort-keys": false,
+    "class-name": false,
     "variable-name": [
       true,
       "check_format",

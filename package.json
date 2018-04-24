@@ -6,6 +6,7 @@
     "@types/gl-matrix": "^2.4.0",
     "@types/jest": "^22.2.3",
     "@types/node": "^9.6.6",
+    "@types/radium": "^0.24.0",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
     "husky": "^0.14.3",
@@ -16,6 +17,7 @@
   },
   "dependencies": {
     "gl-matrix": "^2.5.1",
+    "radium": "^0.24.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
   },

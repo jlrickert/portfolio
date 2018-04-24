@@ -1,0 +1,29 @@
+.Nav {
+  z-index: 9999;
+  position: fixed;
+  height: 60px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.Nav-content {
+  top: 0;
+  display: flex;
+  color: green;
+  justify-content: center;
+  animation: fadein 2s;
+}
+
+.Nav-item {
+  width: 200px;
+  text-align: center;
+  font-size: 200%;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
