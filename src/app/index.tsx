@@ -17,8 +17,9 @@ export interface IAppState {
 }
 
 export const styles = {
+  base: { width: "100%", height: "100%" } as React.CSSProperties,
   spacer: { paddingTop: navStyles.base.height },
-} as { [key: string]: React.CSSProperties };
+};
 
 @Radium
 export class App extends React.Component<{}, IAppState> {
@@ -30,10 +31,10 @@ export class App extends React.Component<{}, IAppState> {
     const Content = this.matchRoute(this.state.route);
 
     return (
-      <div className="App">
+      <div style={styles.base} className="App">
         <Background />
         <Nav updateRoute={this.updateRoute} />
-        <div style={styles.spacer} />
+        <div className="spacer" style={styles.spacer} />
         <Content className="App-content" />
       </div>
     );
