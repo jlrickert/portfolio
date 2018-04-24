@@ -31,7 +31,7 @@ export class Background {
   private buffers: IBuffers;
   constructor(
     private gl: WebGLRenderingContext,
-    private backgroundImage: ArrayBufferView,
+    private backgroundImage: ImageBitmap,
   ) {
     this.program = this.initShaderProgram({
       vsSource: Shader.vertexSource,

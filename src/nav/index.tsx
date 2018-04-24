@@ -3,8 +3,6 @@ import Radium from "radium";
 
 /* import "./nav.css";*/
 import { ERoute } from "../app";
-import { CSSProperties } from "react";
-import { EROFS } from "constants";
 
 export interface INavProps {
   updateRoute: (route: ERoute) => void;
@@ -15,34 +13,38 @@ const fadein = Radium.keyframes({
   to: { opacity: 1 },
 });
 
+const divHeight = "50";
+
 export const styles = {
   base: {
     zIndex: 9998,
     position: "fixed",
-    height: "60px",
+    height: "50px",
     width: "100%",
     margin: "0 auto",
     flexWrap: "wrap",
     maxWidth: "100%",
-  } as CSSProperties,
-  container: {
     top: 0,
-    margin: "0 auto",
+  } as React.CSSProperties,
+  container: {
     width: "100%",
     display: "flex",
+    alignItems: "center",
     justifyContent: "center",
-  } as CSSProperties,
+  } as React.CSSProperties,
   item: {
     zIndex: 9999,
     fontSize: "200%",
     minWidth: "150px",
     textAlign: "center",
+    paddingTop: "20px",
     width: "20%",
+    height: "100%",
     color: "green",
     animationDuration: "2s",
     animationName: fadein,
     animationIterationCount: 1,
-  } as CSSProperties,
+  } as React.CSSProperties,
 };
 
 @Radium
@@ -64,9 +66,9 @@ export class Nav extends React.Component<INavProps, {}> {
     ));
 
     return (
-      <Radium.StyleRoot>
+      <div className="Nav" style={styles.base}>
         <nav style={styles.container}>{elems}</nav>
-      </Radium.StyleRoot>
+      </div>
     );
   }
 

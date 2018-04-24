@@ -1,10 +1,9 @@
 import * as React from "react";
-import "./App.css";
+import Radium from "radium";
 
 import { Background } from "../background";
 import { Nav, styles as navStyles } from "../nav";
 import { Home } from "../home";
-import { CSSProperties } from "react";
 
 export enum ERoute {
   Home = "#home",
@@ -17,8 +16,11 @@ export interface IAppState {
   route: ERoute;
 }
 
-export const styles = {} as { [key: string]: CSSProperties };
+export const styles = {
+  spacer: { paddingTop: navStyles.base.height },
+} as { [key: string]: React.CSSProperties };
 
+@Radium
 export class App extends React.Component<{}, IAppState> {
   public state: IAppState = {
     route: ERoute.Home,
@@ -31,7 +33,7 @@ export class App extends React.Component<{}, IAppState> {
       <div className="App">
         <Background />
         <Nav updateRoute={this.updateRoute} />
-        <div style={{ paddingTop: navStyles.base.height } as CSSProperties} />
+        <div style={styles.spacer} />
         <Content className="App-content" />
       </div>
     );
