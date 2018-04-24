@@ -52,8 +52,8 @@ export class Nav extends React.Component<INavProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     const elems = [
       { routeName: "Home", route: ERoute.Home },
-      { routeName: "Projects", route: ERoute.Projects },
       { routeName: "About", route: ERoute.About },
+      { routeName: "Projects", route: ERoute.Projects },
       { routeName: "Contact", route: ERoute.Contact },
     ].map(({ routeName, route }) => (
       <div

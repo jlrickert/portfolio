@@ -1,4 +1,4 @@
-.Nav {
+.base {
   z-index: 9999;
   position: fixed;
   height: 60px;
@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.Nav-content {
+.container {
   top: 0;
   display: flex;
   color: green;
@@ -14,7 +14,7 @@
   animation: fadein 2s;
 }
 
-.Nav-item {
+.item {
   width: 200px;
   text-align: center;
   font-size: 200%;

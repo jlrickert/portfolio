@@ -1,9 +1,10 @@
 import * as React from "react";
-import Radium from "radium";
 
+import "./styles.css";
 import { Background } from "../background";
-import { Nav, styles as navStyles } from "../nav";
+import { Nav } from "../nav";
 import { Home } from "../home";
+import { About } from "../about";
 
 export enum ERoute {
   Home = "#home",
@@ -15,13 +16,6 @@ export enum ERoute {
 export interface IAppState {
   route: ERoute;
 }
-
-export const styles = {
-  base: { width: "100%", height: "100%" } as React.CSSProperties,
-  spacer: { paddingTop: navStyles.base.height },
-};
-
-@Radium
 export class App extends React.Component<{}, IAppState> {
   public state: IAppState = {
     route: ERoute.Home,
@@ -31,11 +25,13 @@ export class App extends React.Component<{}, IAppState> {
     const Content = this.matchRoute(this.state.route);
 
     return (
-      <div style={styles.base} className="App">
+      <div className="App">
         <Background />
         <Nav updateRoute={this.updateRoute} />
-        <div className="spacer" style={styles.spacer} />
-        <Content className="App-content" />
+        <div className="spacer" />
+        <div className="App-spacer">
+          <Content className="App-content" />
+        </div>
       </div>
     );
   }
@@ -46,7 +42,7 @@ export class App extends React.Component<{}, IAppState> {
         return Home;
       }
       case ERoute.About: {
-        return Home;
+        return About;
       }
       case ERoute.Contact: {
         return Home;
