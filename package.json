@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
+    "@types/bootstrap": "^4.1.0",
     "@types/gl-matrix": "^2.4.0",
     "@types/jest": "^22.2.3",
+    "@types/jquery": "^3.3.1",
     "@types/node": "^9.6.6",
     "@types/react": "^16.3.12",
     "@types/react-dom": "^16.0.5",
+    "@types/three": "^0.91.10",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.1",
@@ -15,9 +18,13 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "bootstrap": "^4.1.0",
     "gl-matrix": "^2.5.1",
+    "jquery": "^3.3.1",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.3.2",
+    "three": "^0.92.0"
   },
   "scripts": {
     "start": "react-scripts-ts start",

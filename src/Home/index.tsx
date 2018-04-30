@@ -8,13 +8,11 @@ export interface IHomeProps {
 
 export class Home extends React.Component<IHomeProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
-    const classes = this.props.className + " Home";
-
     return (
-      <div className={classes}>
+      <section className="Home">
         <h1 className="Home-logo">Jared Rickert</h1>
         <svg>How to Use this?</svg>
-      </div>
+      </section>
     );
   }
 }

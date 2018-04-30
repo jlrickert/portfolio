@@ -1,10 +1,10 @@
 import * as React from "react";
 
 import "./styles.css";
-import { Background } from "../background";
-import { Nav } from "../nav";
-import { Home } from "../home";
-import { About } from "../about";
+import { Background } from "../Background";
+import { Nav } from "../Nav";
+import { Home } from "../Home";
+import { About } from "../About";
 
 export enum ERoute {
   Home = "#home",
@@ -26,11 +26,12 @@ export class App extends React.Component<{}, IAppState> {
 
     return (
       <div className="App">
-        <Background />
         <Nav updateRoute={this.updateRoute} />
-        <div className="spacer" />
-        <div className="App-spacer">
-          <Content className="App-content" />
+        <Background lightCount={100} />
+        <div className="App-spacer" />
+        <div className="App-content">
+          <div className="App-content-hud" />
+          <Content />
         </div>
       </div>
     );
@@ -54,7 +55,6 @@ export class App extends React.Component<{}, IAppState> {
   }
 
   private updateRoute = (route: ERoute) => {
-    console.debug(route);
     this.setState({ route });
   };
 }
