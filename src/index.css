@@ -1,10 +1,40 @@
 * {
-  /* position: relative; */
+  color: #ffffff;
+  z-index: 1000;
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+.u-fadein-2 {
+  animation: fadein 2s;
+}
+
+.u-fadein-3 {
+  animation: fadein 3s;
+}
+
+.u-fadein-4 {
+  animation: fadein 4s;
+}
+
+.u-fadein-5 {
+  animation: fadein 5s;
+}
+
+.u-fadein-6 {
+  animation: fadein 6s;
+}
+
+.u-fadein-7 {
+  animation: fadein 7s;
+}
+
+.u-fadein-8 {
+  animation: fadein 8s;
 }
 
 @keyframes fadein {

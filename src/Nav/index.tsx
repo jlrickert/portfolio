@@ -1,45 +1,48 @@
 import * as React from "react";
+import { Link } from "react-router-dom";
 
 import "./styles.css";
-import { ERoute } from "../App";
+
+export interface INavLink {
+  active?: boolean;
+  path: string;
+  text: string;
+}
 
 export interface INavProps {
-  updateRoute: (route: ERoute) => void;
+  routes: INavLink[];
 }
 
 export class Nav extends React.Component<INavProps, {}> {
-  /* public componentDidUpdate() {
-   *     this.refs.toggleInput.getDOMNode().
-   * }*/
   public render(): React.ReactElement<HTMLDivElement> {
-    const elems = [
-      { routeName: "About", route: ERoute.About },
-      { routeName: "Projects", route: ERoute.Projects },
-      { routeName: "Contact", route: ERoute.Contact },
-    ].map(({ routeName, route }) => {
+    const elems = this.props.routes.map((route, i) => {
+      const active = route.active ? "active" : "";
       return (
-        <li key={routeName} className="nav-item">
-          <a className="nav-link" onClick={this.changeRoute(route)}>
-            {routeName}
-          </a>
+        <li className="nav-item" key={route.path}>
+          <Link
+            to={route.path}
+            className={`nav-link u-fadein-${i + 3} ${active}`}
+          >
+            {route.text}
+          </Link>
         </li>
       );
     });
 
     return (
       <header>
-        <nav className="Nav navbar navbar-dark bg-primary navbar-expand-sm fixed-top">
-          <a className="navbar-brand" onClick={this.changeRoute(ERoute.Home)}>
+        <nav className="Nav navbar navbar-dark navbar-expand-sm">
+          <Link to="/" className="navbar-brand u-fadein-2">
             JR
-          </a>
+          </Link>
 
           <button
             type="button"
-            className="navbar-toggler"
+            className="Nav-button navbar-toggler u-fadein"
             data-toggle="collapse"
             data-target="#navbarCollapse"
             aria-controls="navbarCollapse"
-            aria-expand="false"
+            aria-expanded="false"
             aria-label="Toggle Navigation"
           >
             <span className="navbar-toggler-icon" />
@@ -52,8 +55,4 @@ export class Nav extends React.Component<INavProps, {}> {
       </header>
     );
   }
-
-  private changeRoute = (route: ERoute) => () => {
-    this.props.updateRoute(route);
-  };
 }

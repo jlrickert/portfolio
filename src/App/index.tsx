@@ -1,62 +1,56 @@
 import * as React from "react";
+import { Route, Switch, Redirect, withRouter, match } from "react-router-dom";
+import { History, Location } from "history";
 
-import "./styles.css";
 import { Background } from "../Background";
 import { Nav } from "../Nav";
 import { Home } from "../Home";
 import { About } from "../About";
+import { ProjectList } from "../ProjectList";
+import { Contact } from "../Contact";
+import { Resume } from "../Resume";
+import "./styles.css";
 
-export enum ERoute {
-  Home = "#home",
-  About = "#about",
-  Contact = "#contact",
-  Projects = "#projects",
+export interface IAppProps {
+  location: Location;
+  history: History;
 }
 
-export interface IAppState {
-  route: ERoute;
-}
-export class App extends React.Component<{}, IAppState> {
-  public state: IAppState = {
-    route: ERoute.Home,
-  };
+export interface IAppState {}
+
+class _App extends React.Component<IAppProps, IAppState> {
+  public state: IAppState = {};
 
   public render(): React.ReactElement<HTMLDivElement> {
-    const Content = this.matchRoute(this.state.route);
-
+    const { location } = this.props;
+    const routes = [
+      { text: "About", path: "/about", component: About },
+      { text: "Projects", path: "/projects", component: ProjectList },
+      { text: "Contact", path: "/contact", component: Contact },
+      { text: "Resume", path: "/resume", component: Resume },
+    ].map(route => ({ ...route, active: location.pathname === route.path }));
+    console.debug(location.pathname);
+    const elems = routes.map(route => (
+      <Route path={route.path} component={route.component} />
+    ));
     return (
       <div className="App">
-        <Nav updateRoute={this.updateRoute} />
+        {/* routes load slow if this is not on top */}
         <Background lightCount={100} />
-        <div className="App-spacer" />
-        <div className="App-content">
-          <div className="App-content-hud" />
-          <Content />
+        <Nav routes={routes} />
+        <hr />
+        <div className="App-content u-fadein-2 container">
+          <Switch>
+            <Route exact={true} path="/" component={Home} />
+            {elems}
+            <Redirect from="*" to="/" />
+          </Switch>
         </div>
       </div>
     );
   }
-
-  private matchRoute(route: ERoute) {
-    switch (route) {
-      case ERoute.Home: {
-        return Home;
-      }
-      case ERoute.About: {
-        return About;
-      }
-      case ERoute.Contact: {
-        return Home;
-      }
-      case ERoute.Projects: {
-        return Home;
-      }
-    }
-  }
-
-  private updateRoute = (route: ERoute) => {
-    this.setState({ route });
-  };
 }
+
+export const App = withRouter(_App as any);
 
 export default App;

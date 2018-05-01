@@ -1,15 +1,6 @@
 .Nav {
-  color: green;
-  /* z-index: 9999; */
-  /* position: fixed; */
-  /* top: 0; */
-  /* left: 0; */
-  /* background-color: blue; */
-  /* bottom: 0; */
-  /* right: 0; */
-  /* width: 100%; */
-  /* margin: 0 auto; */
-  /* max-width: 800px; */
+  z-index: 1030;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
 .nav-link {
@@ -17,25 +8,17 @@
 }
 
 .Nav-home {
-  /* position: relative; */
   color: green;
 }
 
 .Nav-container {
-  /* width: 500px; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* float: right; */
 }
 
 .Nav-item {
-  /* z-index: 9999; */
-  /* min-width: 150px; */
-  /* text-align: center; */
-  /* /\* padding-top: 20px; *\/ */
-  /* width: 33%; */
-  /* height: 100%; */
-  /* color: green; */
   animation: fadein 2s;
+}
+
+.Nav-button {
+  color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.1);
 }
