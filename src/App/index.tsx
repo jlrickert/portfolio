@@ -23,20 +23,26 @@ class _App extends React.Component<IAppProps, IAppState> {
 
   public render(): React.ReactElement<HTMLDivElement> {
     const { location } = this.props;
+
     const routes = [
+      { text: "Fun side projects", path: "/projects", component: ProjectList },
       { text: "About", path: "/about", component: About },
-      { text: "Projects", path: "/projects", component: ProjectList },
       { text: "Contact", path: "/contact", component: Contact },
       { text: "Resume", path: "/resume", component: Resume },
-    ].map(route => ({ ...route, active: location.pathname === route.path }));
-    console.debug(location.pathname);
-    const elems = routes.map(route => (
-      <Route path={route.path} component={route.component} />
+    ].map(route => ({
+      ...route,
+      active: location.pathname === route.path,
+    }));
+
+    const elems = routes.map((route, i) => (
+      <Route key={i} path={route.path} component={route.component} />
     ));
+
     return (
       <div className="App">
         {/* routes load slow if this is not on top */}
         <Background lightCount={100} />
+
         <Nav routes={routes} />
         <hr />
         <div className="App-content u-fadein-2 container">

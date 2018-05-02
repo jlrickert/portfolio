@@ -4,5 +4,6 @@
 }
 
 .App-content {
+  z-index: 1000;
   animation: fadein 2s;
 }

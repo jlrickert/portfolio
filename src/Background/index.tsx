@@ -141,6 +141,6 @@ export class Background extends React.Component<
 
   private handleMouseMovement = (ev: MouseEvent): any => {
     ev.preventDefault();
-    console.debug(ev.clientX, ev.clientY);
+    /* console.debug(ev.clientX, ev.clientY);*/
   };
 }

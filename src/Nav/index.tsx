@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 
 import "./styles.css";
+import { GotoTopButton } from "./GotoTopButton";
 
 export interface INavLink {
   active?: boolean;
@@ -30,8 +31,8 @@ export class Nav extends React.Component<INavProps, {}> {
     });
 
     return (
-      <header>
-        <nav className="Nav navbar navbar-dark navbar-expand-sm">
+      <header className="Nav">
+        <nav className="navbar navbar-dark navbar-expand-sm">
           <Link to="/" className="navbar-brand u-fadein-2">
             JR
           </Link>
@@ -52,6 +53,7 @@ export class Nav extends React.Component<INavProps, {}> {
             <ul className="nav navbar-nav">{elems}</ul>
           </div>
         </nav>
+        <GotoTopButton className={"u-fadein-3"} />
       </header>
     );
   }
