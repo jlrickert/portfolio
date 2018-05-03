@@ -49,7 +49,11 @@ export class GotoTopButton extends React.Component<IGotoTopButton, {}> {
   public render(): React.ReactElement<HTMLButtonElement> {
     const className = `Nav-goto-top ${this.props.className}`;
     return (
-      <button className={className} onClick={this.gotoTop}>
+      <button
+        style={{ display: "none" }}
+        className={className}
+        onClick={this.gotoTop}
+      >
         <UpArrow />
       </button>
     );
