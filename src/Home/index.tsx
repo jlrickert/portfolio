@@ -12,6 +12,7 @@ export class Home extends React.Component<IHomeProps, {}> {
       <section className="Home">
         <div />
         <h1 className="Home-logo">Jared Rickert</h1>
+        <p className="u-fadein-3">Fullstack Developer</p>
         <svg>How to Use this?</svg>
       </section>
     );

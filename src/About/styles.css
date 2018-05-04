@@ -1,8 +1,8 @@
 .About {
   position: relative;
   margin: 0 auto;
-  color: green;
 }
 
 .About-header {
+  text-align: center;
 }

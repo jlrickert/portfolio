@@ -64,6 +64,7 @@ export class Background extends React.Component<
     this.lights = this.initLights(this.props.lightCount, this.scene);
     window.addEventListener("resize", this.onSupportedResize, false);
     window.addEventListener("mousemove", this.handleMouseMovement, false);
+
     requestAnimationFrame(this.animate);
     this.setState({ supported: true, running: true, width, height });
   }
@@ -82,6 +83,7 @@ export class Background extends React.Component<
         return <div className="Background-fallback" />;
       }
     })();
+
     return <div className="Background">{elem}</div>;
   }
 

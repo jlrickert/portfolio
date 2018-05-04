@@ -22,7 +22,7 @@ export class Nav extends React.Component<INavProps, {}> {
         <li className="nav-item" key={route.path}>
           <Link
             to={route.path}
-            className={`nav-link u-fadein-${i + 3} ${active}`}
+            className={`nav-link u-fadein-${i + 2} ${active}`}
           >
             {route.text}
           </Link>
