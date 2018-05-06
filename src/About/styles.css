@@ -1,8 +1,41 @@
 .About {
-  position: relative;
-  margin: 0 auto;
 }
 
-.About-header {
+.About-section {
+  font-size: 200%;
   text-align: center;
+}
+
+.About-content {
+}
+
+@media (min-width: 600px) {
+  .About {
+    display: grid;
+    grid-template: "section content" auto;
+  }
+
+  .About-section {
+    font-size: 100%;
+    text-align: center;
+  }
+  .About-section > p {
+    height: 100%;
+    transform: translateY(50%);
+  }
+
+  .About-content {
+  }
+}
+
+.uncommon {
+  color: green;
+}
+
+.epic {
+  color: purple;
+}
+
+.legendary {
+  color: orange;
 }
