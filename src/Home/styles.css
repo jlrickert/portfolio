@@ -1,7 +1,30 @@
 .Home {
+  position: absolute;
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding-top: 50px;
+}
+
+.Home-contents {
+  display: table-cell;
+  /* vertical-align: middle; */
+  text-align: center;
+}
+
+.Home-portrait {
+  border-radius: 50%;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.Home-portrait img {
+  height: 100%;
+  width: 300px;
 }
 
 .Home-logo {
-  font-size: 500%;
   text-align: center;
 }
