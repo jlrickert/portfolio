@@ -2,29 +2,54 @@
 }
 
 .About-section {
-  font-size: 200%;
+  width: 100%;
+}
+
+.About-head {
   text-align: center;
 }
 
 .About-content {
 }
 
+.About-background {
+}
+
 @media (min-width: 600px) {
   .About {
     display: grid;
-    grid-template: "section content" auto;
+    grid-template: "head content" auto;
   }
 
-  .About-section {
-    font-size: 100%;
-    text-align: center;
-  }
-  .About-section > p {
+  .About-head {
+    display: grid;
     height: 100%;
-    transform: translateY(50%);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .About-head > h1 {
+    font-size: 100%;
   }
 
   .About-content {
+  }
+
+  .About-background {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    fill: green;
+  }
+}
+
+@media (max-width: 600px) {
+  .About-background {
+    display: none;
   }
 }
 
