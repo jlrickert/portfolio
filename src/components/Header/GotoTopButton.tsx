@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { CSSProperties } from "react";
 
-export interface IGotoTopButton {
+export interface IGotoTopButtonProps {
   className?: string;
 }
 
@@ -38,7 +37,7 @@ const UpArrow = (props: {
   );
 };
 
-export class GotoTopButton extends React.Component<IGotoTopButton, {}> {
+export class GotoTopButton extends React.Component<IGotoTopButtonProps, {}> {
   private button: HTMLButtonElement;
 
   public componentDidMount() {
@@ -47,7 +46,7 @@ export class GotoTopButton extends React.Component<IGotoTopButton, {}> {
   }
 
   public render(): React.ReactElement<HTMLButtonElement> {
-    const className = `Nav-goto-top ${this.props.className}`;
+    const { className } = this.props;
     return (
       <button
         style={{ display: "none" }}

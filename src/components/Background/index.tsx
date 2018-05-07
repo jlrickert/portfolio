@@ -5,7 +5,7 @@ import * as Three from "three";
 import "./styles.css";
 import { Light } from "./Light";
 import { LightController } from "./LightController";
-import { randomPoint, Point } from "../utils";
+import { randomPoint, Point } from "./utils";
 
 export interface IBackgoundProps {
   lightCount: number;

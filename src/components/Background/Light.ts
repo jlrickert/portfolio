@@ -1,5 +1,5 @@
 import * as Three from "three";
-import { randFloat, randomPoint, Point } from "../utils";
+import { randFloat, randomPoint, Point } from "./utils";
 
 export type TColor = string | number | Three.Color;
 

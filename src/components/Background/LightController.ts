@@ -1,5 +1,5 @@
 import { Light } from "./Light";
-import { Point, randomPoint } from "../utils";
+import { Point, randomPoint } from "./utils";
 
 export class LightController {
   private checkpoint: Point;

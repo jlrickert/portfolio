@@ -1,4 +1,4 @@
-.Nav {
+.Header {
   z-index: 1030;
   background-color: rgba(0, 0, 0, 0.75);
 }
@@ -7,28 +7,31 @@
   color: green;
 }
 
-.Nav-home {
-  color: green;
+.Header-home {
 }
 
-.Nav-container {
+.Header-container {
 }
 
-.Nav-item {
+.Header-item {
   animation: fadein 2s;
 }
 
-.Nav-button {
+.Header-button {
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-.Nav-goto-top {
+.Header-goto-top {
   position: fixed;
   width: 60px;
   height: 60px;
   right: 30px;
   bottom: 30px;
   background: none;
+  fill: green;
   border: none;
+}
+
+@media (min-width: 600px) {
 }

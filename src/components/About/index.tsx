@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import "./styles.css";
+import picUrl from "./pic.jpg";
 
 import { Background } from "./Background";
 
@@ -8,30 +9,24 @@ const yearsProgramming = new Date().getFullYear() - 2012;
 
 const aboutHead = (
   <div className="About-head">
-    <h1>About Me</h1>
     <Background className="About-background" />
+    <h1>Passion for coding</h1>
   </div>
 );
 
 const aboutContent = (
   <div className="About-content">
     <p>
-      To keep it simple, I am a fullstack developer currently living in
-      Minnesota looking to make my next career move. Please feel free to{" "}
-      <Link to="/contact">contact me</Link>.
+      Hi there, I am a software developer who has been following my passion ever
+      since first learning to code. I enjoy solving problems and creating
+      content that others enjoy.
     </p>
 
     <p>
-      I am a self taught programmer who has been programming as a hobby for over{" "}
+      I taught myself who has been programming as a hobby for over{" "}
       {yearsProgramming}+ years. I originally studied electrical engineering at
       St Cloud State University but later switch to computer science as I
       relized my passion was in coding.
-    </p>
-
-    <p>
-      Most of my early projects where developing my desktop experience on Linux,
-      arduino projects, and writing sample games (mostly command line). Nowadays
-      I spend most of time build things on the web.
     </p>
 
     <p>
@@ -43,8 +38,8 @@ const aboutContent = (
 
 const skillzHead = (
   <div className="About-head">
-    <h1>Mad Skillz</h1>
     <Background className="About-background" />
+    <h1>Mad Skillz</h1>
   </div>
 );
 
@@ -71,8 +66,8 @@ const skillzContent = (
 
 const booksHead = (
   <div className="About-head">
-    <h1>Books I have read</h1>
     <Background className="About-background" />
+    <h1>Books I have read</h1>
   </div>
 );
 
@@ -87,20 +82,33 @@ const booksContent = (
   </div>
 );
 
+const Header = () => {
+  return (
+    <div className="About-header">
+      <div className="About-portrait">
+        <img src={picUrl} />
+      </div>
+      <p>Full-Stack Developer</p>
+    </div>
+  );
+};
+
 export interface IAboutProps {}
 
 export class About extends React.Component<IAboutProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     return (
-      <div className="About">
-        {aboutHead}
-        {aboutContent}
+      <div className="About l-dt">
+        <div className="l-dtc">
+          {aboutHead}
+          {aboutContent}
 
-        {skillzHead}
-        {skillzContent}
+          {skillzHead}
+          {skillzContent}
 
-        {booksHead}
-        {booksContent}
+          {booksHead}
+          {booksContent}
+        </div>
       </div>
     );
   }

@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import { GotoTopButton } from "./GotoTopButton";
 
-export interface INavLink {
+export interface IheaderLink {
   active?: boolean;
   path: string;
   text: string;
 }
 
-export interface INavProps {
-  routes: INavLink[];
+export interface IHeaderProps {
+  routes: IheaderLink[];
 }
 
-export class Nav extends React.Component<INavProps, {}> {
+export class Header extends React.Component<IHeaderProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     const elems = this.props.routes.map((route, i) => {
       const active = route.active ? "active" : "";
@@ -31,15 +31,15 @@ export class Nav extends React.Component<INavProps, {}> {
     });
 
     return (
-      <header className="Nav">
-        <nav className="navbar navbar-dark navbar-expand-sm">
-          <Link to="/" className="navbar-brand u-fadein-2">
+      <header className="Header">
+        <nav className="l-flex">
+          <Link to="/" className="u-fadein-2">
             JR
           </Link>
 
           <button
             type="button"
-            className="Nav-button navbar-toggler u-fadein"
+            className="Header-button navbar-toggler u-fadein"
             data-toggle="collapse"
             data-target="#navbarCollapse"
             aria-controls="navbarCollapse"
@@ -53,7 +53,7 @@ export class Nav extends React.Component<INavProps, {}> {
             <ul className="nav navbar-nav">{elems}</ul>
           </div>
         </nav>
-        <GotoTopButton className={"u-fadein-3"} />
+        <GotoTopButton className="Header-goto-top u-fadein-3" />
       </header>
     );
   }

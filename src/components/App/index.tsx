@@ -3,10 +3,11 @@ import { Route, Switch, Redirect, withRouter, match } from "react-router-dom";
 import { History, Location } from "history";
 
 import { Background } from "../Background";
-import { Nav } from "../Nav";
+import { Header } from "../Header";
 import { Home } from "../Home";
 import { About } from "../About";
 import { ProjectList } from "../ProjectList";
+
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
 import "./styles.css";
@@ -42,20 +43,27 @@ class _App extends React.Component<IAppProps, IAppState> {
       <Route key={i} path={route.path} component={route.component} />
     ));
 
+    setTimeout(() => {
+      const content = document.getElementById("mainContent")!;
+      console.debug(content.classList.contains("u-fadein-2"));
+      content.classList.remove("u-fadein-2");
+      content.classList.add("u-fadein-2");
+    }, 100);
+
     return (
       <div className="App">
-        <Nav routes={routes} />
-        <hr />
-        <div className="App-content u-fadein-2 container">
+        <Background lightCount={100} />
+        <Header routes={routes} />
+        <section
+          id="mainContent"
+          className="App-content u-fadein-2 l-container"
+        >
           <Switch>
             <Route exact={true} path="/" component={Home} />
             {elems}
             <Redirect from="*" to="/" />
           </Switch>
-        </div>
-
-        {/* routes load slow if this is not on top */}
-        <Background lightCount={100} />
+        </section>
       </div>
     );
   }
