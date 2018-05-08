@@ -7,7 +7,6 @@ import { Header } from "../Header";
 import { Home } from "../Home";
 import { About } from "../About";
 import { ProjectList } from "../ProjectList";
-
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
 import "./styles.css";
@@ -54,10 +53,7 @@ class _App extends React.Component<IAppProps, IAppState> {
       <div className="App">
         <Background lightCount={100} />
         <Header routes={routes} />
-        <section
-          id="mainContent"
-          className="App-content u-fadein-2 l-container"
-        >
+        <section id="mainContent" className="App-content u-fadein-2">
           <Switch>
             <Route exact={true} path="/" component={Home} />
             {elems}

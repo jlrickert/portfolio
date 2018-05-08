@@ -55,6 +55,11 @@ body {
   display: table-cell;
 }
 
+l-flex {
+  display: flex;
+  flex: auto;
+}
+
 .l-container {
   width: 100%;
   padding-right: 15px;

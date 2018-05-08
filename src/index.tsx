@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
+import "./vendor/fontawesome-all.min.js";
 
 import "./index.css";
-
 import { App } from "./components/App";
 import registerServiceWorker from "./registerServiceWorker";
 

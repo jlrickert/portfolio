@@ -1,25 +1,46 @@
 .Header {
+  position: sticky;
+  display: flex;
+  top: 0;
+  left: 0;
   z-index: 1030;
   background-color: rgba(0, 0, 0, 0.75);
+  width: 100%;
+  align-items: center;
 }
 
-.nav-link {
-  color: green;
+.Header-navbar {
+  display: flex;
+  height: 100%;
 }
 
-.Header-home {
+.Header-logo {
+  flex-basis: 25%;
 }
 
-.Header-container {
+.Header-links {
+  flex: 1;
 }
 
-.Header-item {
+.Header-links li {
+  display: inline;
+  list-style: none;
+  list-style-type: none;
+}
+
+.Header-link {
   animation: fadein 2s;
 }
 
+.Header-active {
+  color: green;
+}
+
 .Header-button {
+  /* display: none; */
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.1);
+  float: right;
 }
 
 .Header-goto-top {
@@ -33,5 +54,12 @@
   border: none;
 }
 
-@media (min-width: 600px) {
+@media screen and (max-width: 600px) {
+  .Header-logo {
+    display: block;
+    float: left;
+  }
+  .Header-button {
+    float: right;
+  }
 }

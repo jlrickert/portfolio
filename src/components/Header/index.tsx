@@ -3,58 +3,54 @@ import { Link } from "react-router-dom";
 
 import "./styles.css";
 import { GotoTopButton } from "./GotoTopButton";
+import { IRoute } from "../App/routes";
 
-export interface IheaderLink {
+export interface IHeaderLink {
   active?: boolean;
   path: string;
   text: string;
 }
 
 export interface IHeaderProps {
-  routes: IheaderLink[];
+  routes: IHeaderLink[];
 }
 
 export class Header extends React.Component<IHeaderProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
-    const elems = this.props.routes.map((route, i) => {
-      const active = route.active ? "active" : "";
-      return (
-        <li className="nav-item" key={route.path}>
-          <Link
-            to={route.path}
-            className={`nav-link u-fadein-${i + 2} ${active}`}
-          >
-            {route.text}
-          </Link>
-        </li>
-      );
-    });
+    const { routes } = this.props;
+    const links = routes.map(this.renderRoute);
 
     return (
       <header className="Header">
-        <nav className="l-flex">
-          <Link to="/" className="u-fadein-2">
+        <nav>
+          <Link to="/" className="Header-logo Header-link u-fadein-2">
             JR
           </Link>
 
-          <button
-            type="button"
-            className="Header-button navbar-toggler u-fadein"
-            data-toggle="collapse"
-            data-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle Navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          <div id="navbarCollapse" className="collapse navbar-collapse">
-            <ul className="nav navbar-nav">{elems}</ul>
+          <div className="Header-navbar">
+            <ul className="Header-links">{links}</ul>
           </div>
+
+          <button className="Header-button">
+            <i className="fa fa-bars" />
+          </button>
         </nav>
-        <GotoTopButton className="Header-goto-top u-fadein-3" />
+        <GotoTopButton className="Header-button u-fadein-3" />
       </header>
     );
   }
+
+  private renderRoute = (route: IHeaderLink, i: number) => {
+    const active = route.active ? "Header-active" : "";
+    return (
+      <li key={i}>
+        <Link
+          to={route.path}
+          className={`Header-link u-fadein-${i + 2} ${active}`}
+        >
+          {route.text}
+        </Link>
+      </li>
+    );
+  };
 }
