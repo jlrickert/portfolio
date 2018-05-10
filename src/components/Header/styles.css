@@ -44,6 +44,7 @@
 }
 
 .Header-icon {
+  background: transparent;
   display: none;
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.1);
@@ -65,7 +66,6 @@
 @media screen and (max-width: 600px) {
   .Header-logo {
     display: block;
-    float: left;
   }
 
   .Header-links {

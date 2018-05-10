@@ -32,6 +32,6 @@ declare module "@fortawesome/react-fontawesome" {
     readonly transform?: string | object;
   }
 
-  export class FontAwesomeIcon extends Component<FontAwesomeIconProps> {}
+  class FontAwesomeIcon extends Component<FontAwesomeIconProps> {}
   export default FontAwesomeIcon;
 }

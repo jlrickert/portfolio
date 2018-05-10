@@ -16,7 +16,7 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": false,
     "experimentalDecorators": true,
-    "typeRoots": ["./node_modules/@types"]
+    "typeRoots": ["./node_modules/@types", "./types"]
   },
   "exclude": [
     "node_modules",

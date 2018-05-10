@@ -1,10 +1,12 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
+import { faBars } from "@fortawesome/fontawesome-free-solid";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import "./styles.css";
-import { GotoTopButton } from "./GotoTopButton";
 import { IRoute } from "../App/routes";
+
+console.debug(faBars);
 
 export interface IHeaderLink {
   active?: boolean;
@@ -43,7 +45,7 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
           </nav>
           <button className="Header-icon l-small" onClick={this.showNavPopup}>
             <h1>
-              <FontAwesomeIcon icon="bar" />
+              <FontAwesomeIcon icon={faBars} />
             </h1>
           </button>
         </div>
