@@ -14,10 +14,12 @@
     "husky": "^0.14.3",
     "lint-staged": "^7.0.4",
     "prettier": "^1.12.1",
-    "react-scripts-ts": "2.15.1",
+    "react-scripts-ts": "^2.15.1",
     "typescript": "^2.8.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome": "^1.1.7",
+    "@fortawesome/react-fontawesome": "^0.1.0",
     "gl-matrix": "^2.5.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -29,7 +31,9 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "gen": "dts-gen -o --dt --module  @fortawesome/react-fontawesome",
+    "gen2": "dts-gen -o --dt --module @atlaskit/button"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,md}": ["prettier --write", "git add"]

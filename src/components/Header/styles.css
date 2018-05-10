@@ -1,46 +1,54 @@
 .Header {
   position: sticky;
-  display: flex;
   top: 0;
   left: 0;
+  right: 0;
   z-index: 1030;
-  background-color: rgba(0, 0, 0, 0.75);
   width: 100%;
-  align-items: center;
+  background-color: rgba(0, 0, 0, 0.75);
+  overflow: hidden;
+}
+
+.Header-wrapper {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .Header-navbar {
-  display: flex;
-  height: 100%;
+  margin-left: auto;
 }
 
 .Header-logo {
-  flex-basis: 25%;
+  margin-right: auto;
+  width: 200px;
 }
 
 .Header-links {
-  flex: 1;
+  display: flex;
+  align-content: middle;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .Header-links li {
-  display: inline;
   list-style: none;
-  list-style-type: none;
+  margin-left: 1em;
+  transform: translateY(50%);
 }
 
-.Header-link {
-  animation: fadein 2s;
-}
-
-.Header-active {
+.Header .active {
   color: green;
 }
 
-.Header-button {
-  /* display: none; */
+.Header-icon {
+  display: none;
   color: rgba(255, 255, 255, 0.5);
   border-color: rgba(255, 255, 255, 0.1);
-  float: right;
+  width: 75px;
+  height: 75px;
 }
 
 .Header-goto-top {
@@ -59,7 +67,12 @@
     display: block;
     float: left;
   }
-  .Header-button {
-    float: right;
+
+  .Header-links {
+    display: none;
+  }
+
+  .Header-icon {
+    display: block;
   }
 }

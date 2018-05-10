@@ -10,6 +10,7 @@ export interface IBackgroundProps {
 export class Background extends React.Component<IBackgroundProps, {}> {
   public render(): React.ReactElement<any> {
     const { style, className, width, height } = this.props;
+
     return (
       <svg
         style={style}
