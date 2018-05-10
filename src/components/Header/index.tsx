@@ -5,8 +5,7 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import "./styles.css";
 import { IRoute } from "../App/routes";
-
-console.debug(faBars);
+import { Overlay } from "./Overlay";
 
 export interface IHeaderLink {
   active?: boolean;
@@ -26,6 +25,7 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
   public state = { navPopup: false };
 
   public render(): React.ReactElement<HTMLDivElement> {
+    const { navPopup } = this.state;
     const { routes } = this.props;
     const links = routes.map(this.renderRoute);
 
@@ -49,17 +49,18 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
             </h1>
           </button>
         </div>
+        {this.state.navPopup && (
+          <Overlay routes={routes} closeFn={this.hideNavPopup} />
+        )}
       </header>
     );
   }
 
-  private showNavPopup = (e: React.SyntheticEvent<any>) => {
-    e.preventDefault();
+  private showNavPopup = () => {
     this.setState({ navPopup: true });
   };
 
-  private hideNavPopup = (e: React.SyntheticEvent<any>) => {
-    e.preventDefault();
+  private hideNavPopup = () => {
     this.setState({ navPopup: false });
   };
 
