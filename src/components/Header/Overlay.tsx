@@ -19,7 +19,7 @@ export class Overlay extends React.Component<IOverylayProps, {}> {
       <div className="Overlay">
         <ul className="Overlay__items">{links}</ul>
         <button className="Overlay__close" onClick={this.props.closeFn}>
-          <FontAwesomeIcon size="10x" icon={faTimes} />
+          <FontAwesomeIcon size="5x" icon={faTimes} />
         </button>
       </div>
     );
@@ -31,7 +31,7 @@ export class Overlay extends React.Component<IOverylayProps, {}> {
       <li key={i} className="Overlay__item ">
         <Link
           to={route.path}
-          className={`u-fadein-${i + 2} ${active}`}
+          className={`u-fadein-2 ${active}`}
           onClick={this.props.closeFn}
         >
           {route.text}

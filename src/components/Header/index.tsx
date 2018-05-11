@@ -31,22 +31,20 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
 
     return (
       <header className="Header" role="banner">
-        <div className="Header-wrapper">
-          <div className="Header-logo u-fadein-2">
+        <div className="Header__wrapper l-container">
+          <div className="Header__logo u-fadein-2">
             <h1>
-              <Link to="/" className="Header-link">
+              <Link to="/" className="Header__link">
                 JR
               </Link>
             </h1>
           </div>
 
-          <nav className="Header-navbar l-large">
-            <ul className="Header-links">{links}</ul>
+          <nav className="Header__navbar">
+            <ul className="Header__links">{links}</ul>
           </nav>
-          <button className="Header-icon l-small" onClick={this.showNavPopup}>
-            <h1>
-              <FontAwesomeIcon icon={faBars} />
-            </h1>
+          <button className="Header__icon l-small" onClick={this.showNavPopup}>
+            <FontAwesomeIcon icon={faBars} size="2x" />
           </button>
         </div>
         {this.state.navPopup && (
@@ -70,7 +68,7 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
       <li key={i}>
         <Link
           to={route.path}
-          className={`Header-link u-fadein-${i + 2} ${active}`}
+          className={`Header__link u-fadein-${i + 2} ${active}`}
         >
           {route.text}
         </Link>
