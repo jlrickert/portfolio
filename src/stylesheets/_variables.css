@@ -1,0 +1,11 @@
+:root {
+  // colors
+  --primaryText: white;
+  --emphasizedText: green;
+  --primaryBackground: black;
+
+  // breakpoints;
+  --large: 1280px;
+  --medium: 768px;
+  --small: 320px;
+}

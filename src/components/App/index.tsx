@@ -9,7 +9,7 @@ import { About } from "../About";
 import { ProjectList } from "../ProjectList";
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
-import "./styles.css";
+import * as styles from "./styles.css";
 
 export interface IAppProps {
   location: Location;
@@ -42,18 +42,14 @@ class _App extends React.Component<IAppProps, IAppState> {
       <Route key={i} path={route.path} component={route.component} />
     ));
 
-    setTimeout(() => {
-      const content = document.getElementById("mainContent")!;
-      console.debug(content.classList.contains("u-fadein-2"));
-      content.classList.remove("u-fadein-2");
-      content.classList.add("u-fadein-2");
-    }, 100);
+    console.debug(styles);
+    console.debug(styles.App);
 
     return (
-      <div className="App">
+      <div className={styles.App}>
         <Background lightCount={100} />
         <Header routes={routes} />
-        <section id="mainContent" className="App-content u-fadein-2">
+        <section className={styles.Content}>
           <Switch>
             <Route exact={true} path="/" component={Home} />
             {elems}

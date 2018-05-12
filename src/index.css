@@ -47,23 +47,23 @@ body {
   }
 }
 
-.l-dt {
-  display: table;
-}
+/* .l-dt { */
+/*   display: table; */
+/* } */
 
-.l-dtc {
-  display: table-cell;
-}
+/* .l-dtc { */
+/*   display: table-cell; */
+/* } */
 
-l-flex {
-  display: flex;
-  flex: auto;
-}
+/* l-flex { */
+/*   display: flex; */
+/*   flex: auto; */
+/* } */
 
-.l-container {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
+/* .l-container { */
+/*   width: 100%; */
+/*   padding-right: 15px; */
+/*   padding-left: 15px; */
+/*   margin-right: auto; */
+/*   margin-left: auto; */
+/* } */
