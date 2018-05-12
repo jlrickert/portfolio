@@ -2,37 +2,31 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import * as Three from "three";
 
-import "./styles.css";
+import * as Styles from "./background.module.css";
 import { Light } from "./Light";
 import { LightController } from "./LightController";
 import { randomPoint, Point } from "./utils";
 
-export interface IBackgoundProps {
+export interface Props {
   lightCount: number;
 }
 
-interface IBackgroundState {
-  supported: boolean;
+interface State {
   running: boolean;
   width: number;
   height: number;
 }
 
-export class Background extends React.Component<
-  IBackgoundProps,
-  IBackgroundState
-> {
-  private div: HTMLDivElement;
+export class Background extends React.Component<Props, State> {
   private canvas: HTMLCanvasElement;
   private renderer: Three.WebGLRenderer;
   private camera: Three.PerspectiveCamera;
   private scene: Three.Scene;
   private lights: LightController[];
 
-  constructor(props: IBackgoundProps) {
+  constructor(props: Props) {
     super(props);
     this.state = {
-      supported: this.checkCompatibility(),
       running: false,
       width: 0,
       height: 0,
@@ -40,19 +34,10 @@ export class Background extends React.Component<
   }
 
   public componentDidMount(): void {
-    const div = ReactDOM.findDOMNode(this) as HTMLDivElement;
-    this.div = div;
-    if (!this.state.supported) {
-      this.setState({
-        width: div.clientWidth,
-        height: div.clientHeight,
-      });
-      return;
-    }
+    const canvas = ReactDOM.findDOMNode(this) as HTMLCanvasElement;
 
-    const canvas = div.getElementsByTagName("canvas")[0];
-    const width = div.clientWidth;
-    const height = div.clientHeight;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     canvas.width = width;
     canvas.height = height;
     const aspect = width / height;
@@ -62,29 +47,21 @@ export class Background extends React.Component<
     this.camera = this.initCamera(aspect);
     this.scene = this.initScene();
     this.lights = this.initLights(this.props.lightCount, this.scene);
-    window.addEventListener("resize", this.onSupportedResize, false);
+    window.addEventListener("resize", this.onResize, false);
     window.addEventListener("mousemove", this.handleMouseMovement, false);
 
     requestAnimationFrame(this.animate);
-    this.setState({ supported: true, running: true, width, height });
+    this.setState({ running: true, width, height });
   }
 
   public componentWillUnmount() {
-    window.removeEventListener("resize", this.onSupportedResize);
+    window.removeEventListener("resize", this.onResize);
     window.removeEventListener("mousemove", this.handleMouseMovement);
     this.setState({ running: false });
   }
 
   public render(): React.ReactElement<HTMLDivElement> {
-    const elem = (() => {
-      if (this.state.supported) {
-        return <canvas className="Background-canvas" />;
-      } else {
-        return <div className="Background-fallback" />;
-      }
-    })();
-
-    return <div className="Background">{elem}</div>;
+    return <canvas className={Styles.Background} />;
   }
 
   private initScene(): Three.Scene {
@@ -113,9 +90,10 @@ export class Background extends React.Component<
     requestAnimationFrame(this.animate);
   };
 
-  private onSupportedResize = () => {
-    const width = this.div.clientWidth;
-    const height = this.div.clientHeight;
+  private onResize = () => {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+    console.debug(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
@@ -135,10 +113,6 @@ export class Background extends React.Component<
     camera.position.y = 0;
     camera.position.z = 10;
     return camera;
-  }
-
-  private checkCompatibility(): boolean {
-    return true;
   }
 
   private handleMouseMovement = (ev: MouseEvent): any => {
