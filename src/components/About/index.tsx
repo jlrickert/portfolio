@@ -93,9 +93,9 @@ const Header = () => {
   );
 };
 
-export interface IAboutProps {}
+export interface Props {}
 
-export class About extends React.Component<IAboutProps, {}> {
+export class About extends React.Component<Props, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     return (
       <div className="About l-dt">

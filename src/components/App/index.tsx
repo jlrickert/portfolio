@@ -6,22 +6,29 @@ import { Background } from "../Background";
 import { Header } from "../Header";
 import { Home } from "../Home";
 import { About } from "../About";
-import { ProjectList } from "../ProjectList";
+import { ProjectList as Projects } from "../ProjectList";
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
-import * as styles from "./styles.css";
 
-export interface IAppProps {
+import * as styles from "./styles.module.css";
+
+export interface Route {
+  text: string;
+  path: string;
+  component: React.Component;
+}
+
+export interface Props {
   location: Location;
   history: History;
 }
 
-export interface IAppState {
+export interface State {
   isLoading: boolean;
 }
 
-class _App extends React.Component<IAppProps, IAppState> {
-  public state: IAppState = {
+class _App extends React.Component<Props, State> {
+  public state: State = {
     isLoading: true,
   };
 
@@ -30,7 +37,7 @@ class _App extends React.Component<IAppProps, IAppState> {
 
     const routes = [
       { text: "About", path: "/about", component: About },
-      { text: "Projects", path: "/projects", component: ProjectList },
+      { text: "Projects", path: "/projects", component: Projects },
       { text: "Contact", path: "/contact", component: Contact },
       { text: "Resume", path: "/resume", component: Resume },
     ].map(route => ({
@@ -38,12 +45,9 @@ class _App extends React.Component<IAppProps, IAppState> {
       active: location.pathname === route.path,
     }));
 
-    const elems = routes.map((route, i) => (
+    const pages = routes.map((route, i) => (
       <Route key={i} path={route.path} component={route.component} />
     ));
-
-    console.debug(styles);
-    console.debug(styles.App);
 
     return (
       <div className={styles.App}>
@@ -52,7 +56,7 @@ class _App extends React.Component<IAppProps, IAppState> {
         <section className={styles.Content}>
           <Switch>
             <Route exact={true} path="/" component={Home} />
-            {elems}
+            {pages}
             <Redirect from="*" to="/" />
           </Switch>
         </section>

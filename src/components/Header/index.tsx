@@ -4,7 +4,7 @@ import { faBars } from "@fortawesome/fontawesome-free-solid";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
 import "./styles.css";
-import { IRoute } from "../App/routes";
+import { Route } from "../App";
 import { Overlay } from "./Overlay";
 
 export interface IHeaderLink {
