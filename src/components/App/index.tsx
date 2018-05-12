@@ -2,6 +2,7 @@ import * as React from "react";
 import { Route, Switch, Redirect, withRouter, match } from "react-router-dom";
 import { History, Location } from "history";
 
+import { Container } from "../Container";
 import { Background } from "../Background";
 import { Header } from "../Header";
 import { Home } from "../Home";
@@ -10,7 +11,7 @@ import { ProjectList as Projects } from "../ProjectList";
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
 
-import * as styles from "./styles.module.css";
+import * as Styles from "./app.module.css";
 
 export interface Route {
   text: string;
@@ -50,17 +51,17 @@ class _App extends React.Component<Props, State> {
     ));
 
     return (
-      <div className={styles.App}>
+      <Container className={Styles.App}>
         <Background lightCount={100} />
         <Header routes={routes} />
-        <section className={styles.Content}>
+        <section className={Styles.Content}>
           <Switch>
             <Route exact={true} path="/" component={Home} />
             {pages}
             <Redirect from="*" to="/" />
           </Switch>
         </section>
-      </div>
+      </Container>
     );
   }
 }
