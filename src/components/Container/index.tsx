@@ -3,7 +3,7 @@ import * as React from "react";
 import * as Styles from "./container.module.css";
 
 export interface Props {
-  className: string;
+  className?: string;
 }
 
 export class Container extends React.Component<Props> {
@@ -11,7 +11,7 @@ export class Container extends React.Component<Props> {
     const { className } = this.props;
 
     return (
-      <div className={`${Styles.Container} ${className}`}>
+      <div className={`${className || ""} ${Styles.Container}`}>
         {this.props.children}
       </div>
     );

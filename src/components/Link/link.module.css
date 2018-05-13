@@ -1,0 +1,8 @@
+@import "../../stylesheets/_variables.css";
+
+:local .Link {
+}
+
+:local .Link .active {
+  color: var(--emphasizedText);
+}

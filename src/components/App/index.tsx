@@ -1,5 +1,11 @@
 import * as React from "react";
-import { Route, Switch, Redirect, withRouter, match } from "react-router-dom";
+import {
+  Route as RouterRoute,
+  Switch,
+  Redirect,
+  withRouter,
+  match,
+} from "react-router-dom";
 import { History, Location } from "history";
 
 import { Container } from "../Container";
@@ -16,7 +22,8 @@ import * as Styles from "./app.module.css";
 export interface Route {
   text: string;
   path: string;
-  component: React.Component;
+  component: any;
+  active?: boolean;
 }
 
 export interface Props {
@@ -36,7 +43,7 @@ class _App extends React.Component<Props, State> {
   public render(): React.ReactElement<HTMLDivElement> {
     const { location } = this.props;
 
-    const routes = [
+    const routes: Route[] = [
       { text: "About", path: "/about", component: About },
       { text: "Projects", path: "/projects", component: Projects },
       { text: "Contact", path: "/contact", component: Contact },
@@ -47,7 +54,7 @@ class _App extends React.Component<Props, State> {
     }));
 
     const pages = routes.map((route, i) => (
-      <Route key={i} path={route.path} component={route.component} />
+      <RouterRoute key={i} path={route.path} component={route.component} />
     ));
 
     return (
@@ -56,7 +63,7 @@ class _App extends React.Component<Props, State> {
         <Header routes={routes} />
         <section className={Styles.Content}>
           <Switch>
-            <Route exact={true} path="/" component={Home} />
+            <RouterRoute exact={true} path="/" component={Home} />
             {pages}
             <Redirect from="*" to="/" />
           </Switch>

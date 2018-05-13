@@ -1,27 +1,31 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
 import { faBars } from "@fortawesome/fontawesome-free-solid";
 import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 
-import "./styles.css";
+import * as Styles from "./header.module.css";
+import { Container } from "../Container";
+import { Link } from "../Link";
 import { Route } from "../App";
-import { Overlay } from "./Overlay";
 
-export interface IHeaderLink {
-  active?: boolean;
-  path: string;
-  text: string;
+export interface Props {
+  routes: Route[];
 }
 
-export interface IHeaderProps {
-  routes: IHeaderLink[];
-}
-
-interface IHeaderState {
+interface State {
   navPopup: boolean;
 }
 
-export class Header extends React.Component<IHeaderProps, IHeaderState> {
+const Logo = () => {
+  return (
+    <div className={`${Styles.Logo} u-fadein-2`}>
+      <h1>
+        <Link to="/">JR</Link>
+      </h1>
+    </div>
+  );
+};
+
+export class Header extends React.Component<Props, State> {
   public state = { navPopup: false };
 
   public render(): React.ReactElement<HTMLDivElement> {
@@ -30,26 +34,13 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
     const links = routes.map(this.renderRoute);
 
     return (
-      <header className="Header" role="banner">
-        <div className="Header__wrapper l-container">
-          <div className="Header__logo u-fadein-2">
-            <h1>
-              <Link to="/" className="Header__link">
-                JR
-              </Link>
-            </h1>
-          </div>
-
-          <nav className="Header__navbar">
-            <ul className="Header__links">{links}</ul>
-          </nav>
-          <button className="Header__icon l-small" onClick={this.showNavPopup}>
-            <FontAwesomeIcon icon={faBars} size="2x" />
-          </button>
-        </div>
-        {this.state.navPopup && (
-          <Overlay routes={routes} closeFn={this.hideNavPopup} />
-        )}
+      <header className={Styles.Header} role="banner">
+        <Logo />
+        <nav className={Styles.Navbar}>{links}</nav>
+        <button className={Styles.Button} onClick={this.showNavPopup}>
+          <FontAwesomeIcon icon={faBars} size="2x" />
+        </button>
+        {this.state.navPopup && <div />}
       </header>
     );
   }
@@ -62,17 +53,17 @@ export class Header extends React.Component<IHeaderProps, IHeaderState> {
     this.setState({ navPopup: false });
   };
 
-  private renderRoute = (route: IHeaderLink, i: number) => {
-    const active = route.active ? "active" : "";
+  private renderRoute = (route: Route, i: number) => {
     return (
-      <li key={i}>
+      <div className={Styles.NavbarItem}>
         <Link
           to={route.path}
-          className={`Header__link u-fadein-${i + 2} ${active}`}
+          isActive={route.active}
+          className={`${Styles.Link} u-fadein-${i + 2}`}
         >
           {route.text}
         </Link>
-      </li>
+      </div>
     );
   };
 }
