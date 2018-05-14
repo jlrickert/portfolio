@@ -3,6 +3,6 @@
 :local .Link {
 }
 
-:local .Link .active {
+:local .Active {
   color: var(--emphasizedText);
 }

@@ -7,10 +7,12 @@
   right: 0;
   z-index: 1030;
   width: 100%;
+  max-width: var(--max-width);
   background-color: rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 10% 1fr 10%;
+  grid-template-columns: 15% 1fr 15%;
+  margin: 0 auto;
 }
 
 :local .Logo {
@@ -23,13 +25,16 @@
   align-items: center;
 }
 
+:local @media screen and (max-width: 600px) {
+  :local .Navbar {
+    display: none;
+  }
+}
+
 :local .NavbarItem {
   margin: 0 auto;
   margin-left: 1em;
   margin-right: 1em;
-}
-
-:local .Link {
 }
 
 :local .Button {

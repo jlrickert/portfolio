@@ -13,11 +13,17 @@ export interface Props {
 export class Link extends React.Component<Props> {
   public render() {
     const { to, className, isActive } = this.props;
-    const active = isActive ? "active" : "";
+    const active = (isActive && Styles.Active) || "";
+    console.debug(Styles);
     return (
-      <RouterLink to={to} className={`${className || ""} Link ${active}`}>
+      <RouterLink
+        to={to}
+        className={`${className || ""} ${Styles.Link} ${active}`}
+      >
         {this.props.children}
       </RouterLink>
     );
   }
 }
+
+export default Link;

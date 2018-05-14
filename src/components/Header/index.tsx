@@ -55,15 +55,14 @@ export class Header extends React.Component<Props, State> {
 
   private renderRoute = (route: Route, i: number) => {
     return (
-      <div className={Styles.NavbarItem}>
-        <Link
-          to={route.path}
-          isActive={route.active}
-          className={`${Styles.Link} u-fadein-${i + 2}`}
-        >
-          {route.text}
-        </Link>
-      </div>
+      <Link
+        key={i}
+        to={route.path}
+        isActive={route.active}
+        className={`${Styles.NavbarItem} u-fadein-${i + 2}`}
+      >
+        {route.text}
+      </Link>
     );
   };
 }
