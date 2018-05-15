@@ -8,7 +8,7 @@ export class Resume extends React.Component<IResumeProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     return (
       <div>
-        <h1>Resume</h1>
+        <h1>Work in Progress</h1>
       </div>
     );
   }

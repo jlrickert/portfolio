@@ -14,7 +14,6 @@ export class Link extends React.Component<Props> {
   public render() {
     const { to, className, isActive } = this.props;
     const active = (isActive && Styles.Active) || "";
-    console.debug(Styles);
     return (
       <RouterLink
         to={to}

@@ -25,6 +25,38 @@ const Logo = () => {
   );
 };
 
+const NavBar = (props: { routes: Route[] }) => {
+  const links = props.routes.map((route, i) => {
+    return (
+      <li key={i}>
+        <Link
+          to={route.path}
+          isActive={route.active}
+          className={`${Styles.NavbarItem} u-fadein-${i + 2}`}
+        >
+          {route.text}
+        </Link>
+      </li>
+    );
+  });
+  return <div>"rawr"</div>;
+};
+
+const MenuToggle = (props: { isActive?: boolean; onClick: () => void }) => {
+  const { isActive } = props;
+  const active = isActive ? Styles.Active : "";
+  return (
+    <button
+      className={`${Styles.MenuToggle} ${active}`}
+      onClick={props.onClick}
+    >
+      <div className={Styles.One} />
+      <div className={Styles.Two} />
+      <div className={Styles.Three} />
+    </button>
+  );
+};
+
 export class Header extends React.Component<Props, State> {
   public state = { navPopup: false };
 
@@ -32,14 +64,18 @@ export class Header extends React.Component<Props, State> {
     const { navPopup } = this.state;
     const { routes } = this.props;
     const links = routes.map(this.renderRoute);
+    const navOpen = navPopup ? Styles.Open : "";
 
     return (
-      <header className={Styles.Header} role="banner">
+      <header className={`${Styles.Header} sticky`} role="banner">
         <Logo />
-        <nav className={Styles.Navbar}>{links}</nav>
-        <button className={Styles.Button} onClick={this.showNavPopup}>
-          <FontAwesomeIcon icon={faBars} size="2x" />
-        </button>
+        <nav className={`${Styles.Navbar}`}>
+          <ul>{links}</ul>
+        </nav>
+        <MenuToggle
+          isActive={navPopup}
+          onClick={navPopup ? this.hideNavPopup : this.showNavPopup}
+        />
         {this.state.navPopup && <div />}
       </header>
     );
@@ -55,14 +91,15 @@ export class Header extends React.Component<Props, State> {
 
   private renderRoute = (route: Route, i: number) => {
     return (
-      <Link
-        key={i}
-        to={route.path}
-        isActive={route.active}
-        className={`${Styles.NavbarItem} u-fadein-${i + 2}`}
-      >
-        {route.text}
-      </Link>
+      <li key={i}>
+        <Link
+          to={route.path}
+          isActive={route.active}
+          className={`${Styles.NavbarItem} u-fadein-${i + 2}`}
+        >
+          {route.text}
+        </Link>
+      </li>
     );
   };
 }

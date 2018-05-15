@@ -1,10 +1,11 @@
 import * as React from "react";
 import {
+  BrowserRouter,
+  Redirect,
   Route as RouterRoute,
   Switch,
-  Redirect,
-  withRouter,
   match,
+  withRouter,
 } from "react-router-dom";
 import { History, Location } from "history";
 
@@ -58,17 +59,19 @@ class _App extends React.Component<Props, State> {
     ));
 
     return (
-      <Container className={Styles.App}>
-        <Background lightCount={100} />
-        <Header routes={routes} />
-        <section className={Styles.Content}>
-          <Switch>
-            <RouterRoute exact={true} path="/" component={Home} />
-            {pages}
-            <Redirect from="*" to="/" />
-          </Switch>
-        </section>
-      </Container>
+      <BrowserRouter>
+        <Container className={Styles.App}>
+          <Background lightCount={100} />
+          <Header routes={routes} />
+          <section className={Styles.Content}>
+            <Switch>
+              <RouterRoute exact={true} path="/" component={Home} />
+              {pages}
+              <Redirect from="*" to="/" />
+            </Switch>
+          </section>
+        </Container>
+      </BrowserRouter>
     );
   }
 }

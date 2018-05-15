@@ -4,6 +4,12 @@
   z-index: inherit;
 }
 
+*,
+*:after,
+*::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;

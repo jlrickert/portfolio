@@ -8,7 +8,7 @@ export class ProjectList extends React.Component<IProjectListProps, {}> {
   public render(): React.ReactElement<HTMLDivElement> {
     return (
       <div className="ProjectList">
-        <h1>project N</h1>
+        <h1>Work in Progress</h1>
       </div>
     );
   }

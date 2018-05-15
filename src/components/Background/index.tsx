@@ -93,7 +93,6 @@ export class Background extends React.Component<Props, State> {
   private onResize = () => {
     const width = window.innerWidth;
     const height = window.innerHeight;
-    console.debug(width, height);
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
@@ -115,8 +114,7 @@ export class Background extends React.Component<Props, State> {
     return camera;
   }
 
-  private handleMouseMovement = (ev: MouseEvent): any => {
+  private handleMouseMovement = (ev: MouseEvent) => {
     ev.preventDefault();
-    /* console.debug(ev.clientX, ev.clientY);*/
   };
 }
