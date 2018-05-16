@@ -1,24 +1,22 @@
 import * as React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, LinkProps } from "react-router-dom";
 
 import * as Styles from "./link.module.css";
 import { LocationDescriptor } from "history";
 
-export interface Props {
-  to: LocationDescriptor;
-  className?: string;
+export interface Props extends LinkProps {
   isActive?: boolean;
-  onClick?: () => void;
 }
 
 export class Link extends React.Component<Props> {
   public render() {
     const { to, className, isActive, onClick } = this.props;
     const active = (isActive && Styles.Active) || "";
+    const props = { ...this.props };
+    delete props["isActive"];
     return (
       <RouterLink
-        to={to}
-        onClick={onClick}
+        {...props}
         className={`${className || ""} ${Styles.Link} ${active}`}
       >
         {this.props.children}

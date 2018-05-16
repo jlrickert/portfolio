@@ -20,7 +20,7 @@ import { Resume } from "../Resume";
 
 import * as Styles from "./app.module.css";
 
-export interface Route {
+export interface RouteData {
   text: string;
   path: string;
   component: any;
@@ -44,9 +44,9 @@ class _App extends React.Component<Props, State> {
   public render(): React.ReactElement<HTMLDivElement> {
     const { location } = this.props;
 
-    const routes: Route[] = [
-      { text: "About", path: "/about", component: About },
+    const routes: RouteData[] = [
       { text: "Projects", path: "/projects", component: Projects },
+      { text: "About", path: "/about", component: About },
       { text: "Contact", path: "/contact", component: Contact },
       { text: "Resume", path: "/resume", component: Resume },
     ].map(route => ({
@@ -59,23 +59,22 @@ class _App extends React.Component<Props, State> {
     ));
 
     return (
-      <BrowserRouter>
-        <Container className={Styles.App}>
-          <Background lightCount={100} />
-          <Header routes={routes} />
-          <section className={Styles.Content}>
-            <Switch>
-              <RouterRoute exact={true} path="/" component={Home} />
-              {pages}
-              <Redirect from="*" to="/" />
-            </Switch>
-          </section>
-        </Container>
-      </BrowserRouter>
+      <Container className={Styles.App}>
+        <Background lightCount={100} />
+        <Header routes={routes} />
+        <section className={Styles.Content}>
+          <Switch>
+            <RouterRoute exact={true} path="/" component={Home} />
+            {pages}
+            <Redirect from="*" to="/" />
+          </Switch>
+        </section>
+      </Container>
     );
   }
 }
 
+// withRouter provides location and history props
 export const App = withRouter(_App as any);
 
 export default App;

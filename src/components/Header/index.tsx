@@ -5,10 +5,10 @@ import FontAwesomeIcon from "@fortawesome/react-fontawesome";
 import * as Styles from "./header.module.css";
 import { Container } from "../Container";
 import { Link } from "../Link";
-import { Route } from "../App";
+import { RouteData } from "../App";
 
 export interface Props {
-  routes: Route[];
+  routes: RouteData[];
 }
 
 interface State {
@@ -40,7 +40,7 @@ const MenuToggle = (props: { isActive?: boolean; onClick: () => void }) => {
   );
 };
 
-const Overlay = (props: { routes: Route[]; onClose: () => void }) => {
+const Overlay = (props: { routes: RouteData[]; onClose: () => void }) => {
   const links = props.routes.map((route, i) => {
     return (
       <li key={i}>
@@ -50,6 +50,7 @@ const Overlay = (props: { routes: Route[]; onClose: () => void }) => {
       </li>
     );
   });
+
   return (
     <div className={`${Styles.Overlay} fixed`}>
       <ul>{links}</ul>
@@ -91,7 +92,7 @@ export class Header extends React.Component<Props, State> {
     this.setState({ navPopup: false });
   };
 
-  private renderRoute = (route: Route, i: number) => {
+  private renderRoute = (route: RouteData, i: number) => {
     return (
       <li key={i}>
         <Link
