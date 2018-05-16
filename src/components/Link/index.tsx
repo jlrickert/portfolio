@@ -8,15 +8,17 @@ export interface Props {
   to: LocationDescriptor;
   className?: string;
   isActive?: boolean;
+  onClick?: () => void;
 }
 
 export class Link extends React.Component<Props> {
   public render() {
-    const { to, className, isActive } = this.props;
+    const { to, className, isActive, onClick } = this.props;
     const active = (isActive && Styles.Active) || "";
     return (
       <RouterLink
         to={to}
+        onClick={onClick}
         className={`${className || ""} ${Styles.Link} ${active}`}
       >
         {this.props.children}

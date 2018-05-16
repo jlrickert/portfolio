@@ -66,6 +66,29 @@
   transition-duration: 0.5s;
 }
 
+:local .Overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  background: rgba(0, 0, 0, 0.8);
+}
+
+:local .Overlay ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+:local .Overlay li {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  display: flex;
+}
+
 :local @media screen and (max-width: 600px) {
   :local .Header {
     grid-template-columns: 80px . 80px;
@@ -83,6 +106,7 @@
   :local .MenuToggle {
     display: block;
     border: none;
+    z-index: 1070;
   }
 }
 

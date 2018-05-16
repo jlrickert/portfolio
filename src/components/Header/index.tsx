@@ -25,23 +25,6 @@ const Logo = () => {
   );
 };
 
-const NavBar = (props: { routes: Route[] }) => {
-  const links = props.routes.map((route, i) => {
-    return (
-      <li key={i}>
-        <Link
-          to={route.path}
-          isActive={route.active}
-          className={`${Styles.NavbarItem} u-fadein-${i + 2}`}
-        >
-          {route.text}
-        </Link>
-      </li>
-    );
-  });
-  return <div>"rawr"</div>;
-};
-
 const MenuToggle = (props: { isActive?: boolean; onClick: () => void }) => {
   const { isActive } = props;
   const active = isActive ? Styles.Active : "";
@@ -54,6 +37,23 @@ const MenuToggle = (props: { isActive?: boolean; onClick: () => void }) => {
       <div className={Styles.Two} />
       <div className={Styles.Three} />
     </button>
+  );
+};
+
+const Overlay = (props: { routes: Route[]; onClose: () => void }) => {
+  const links = props.routes.map((route, i) => {
+    return (
+      <li key={i}>
+        <Link to={route.path} onClick={props.onClose} isActive={route.active}>
+          {route.text}
+        </Link>
+      </li>
+    );
+  });
+  return (
+    <div className={`${Styles.Overlay} fixed`}>
+      <ul>{links}</ul>
+    </div>
   );
 };
 
@@ -76,7 +76,9 @@ export class Header extends React.Component<Props, State> {
           isActive={navPopup}
           onClick={navPopup ? this.hideNavPopup : this.showNavPopup}
         />
-        {this.state.navPopup && <div />}
+        {this.state.navPopup && (
+          <Overlay routes={routes} onClose={this.hideNavPopup} />
+        )}
       </header>
     );
   }
