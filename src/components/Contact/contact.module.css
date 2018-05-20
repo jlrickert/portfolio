@@ -1,0 +1,22 @@
+:local .Contact {
+}
+
+:local .Contact form {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+:local .Contact form label {
+  color: white;
+}
+
+:local .Contact form input,
+:local .Contact form textarea {
+  color: black;
+}
+
+:local .Submit {
+  margin-left: auto;
+  margin-right: 1em;
+  float: right;
+}

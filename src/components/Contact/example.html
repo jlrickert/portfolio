@@ -1,0 +1,20 @@
+<form className="l-form-stacked contact" style="grid-template-columns: [labels] auto [controls] 1fr"
+  action="https://formspree.io/jaredrickert52@gmail.com" method="POST">
+  <label className="contact--label" for="name">Name:</label>
+  <input type="text" required placeholder="Name" name="name" id="name" />
+
+  <label className="contact--label" for="email">Email:</label>
+  <input type="email" required placeholder="Email Address" name="_replyto" id="email"
+  />
+
+  <label className="contact--label" for="subject">Subject:</label>
+  <input id="subject" type="text" name="_subject" placeholder="Subject" />
+
+  <label className="contact--label" for="message">Message:</label>
+  <textarea id="message" required spellcheck="true" type="textarea" rows="5" name="message"
+    maxlength="500" style="resize:none"></textarea>
+
+  <input type="text" name="_gotcha" style="display:none" />
+
+  <input className="contact--submit" type="submit" value="Send">
+</form>
