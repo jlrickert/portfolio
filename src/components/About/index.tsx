@@ -78,6 +78,7 @@ const booksContent = (
       <li>Clean Code</li>
       <li>Compilers: Principles, Techniques, and Tools. (in progress)</li>
       <li>SICP</li>
+      <li>Running Lean</li>
     </ul>
   </div>
 );

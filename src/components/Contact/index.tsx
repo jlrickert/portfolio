@@ -69,49 +69,55 @@ export class Contact extends React.Component<Props, State> {
           </p>
         )}
         <form
-          className={Styles.ContactForm}
+          className={Styles.Form}
           onSubmit={this.handleSubmit}
           action="https://formspree.io/jaredrickert52@gmail.com"
           method="POST"
         >
-          <label>Name:</label>
+          <label className={Styles.Label}>Name:</label>
           <input
             name="name"
+            placeholder="Name"
             autoComplete="name"
+            className={Styles.Field}
             type="text"
             required
             value={this.state.name}
             onChange={this.handleInputChange}
           />
 
-          <label>Email:</label>
+          <label className={Styles.Label}>Email:</label>
           <input
             name="email"
             type="email"
             autoComplete="email"
+            className={Styles.Field}
             required
             placeholder="Email Address"
             value={this.state.email}
             onChange={this.handleInputChange}
           />
 
-          <label>Subject:</label>
+          <label className={Styles.Label}>Subject:</label>
           <input
             name="subject"
             type="text"
+            className={Styles.Field}
             placeholder="Subject"
             autoComplete="on"
             value={this.state.subject}
             onChange={this.handleInputChange}
           />
 
-          <label>Message:</label>
+          <label className={Styles.Label}>Message:</label>
           <textarea
             name="message"
             required
             rows={5}
             maxLength={500}
             autoComplete="on"
+            placeholder="500 max characters"
+            className={Styles.Field}
             value={this.state.message}
             onChange={this.handleInputChange}
           />
