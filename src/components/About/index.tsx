@@ -1,29 +1,21 @@
 import * as React from "react";
 import { Link } from "react-router-dom";
 import * as Styles from "./about.module.css";
-import picUrl from "./pic.jpg";
 
 const yearsProgramming = new Date().getFullYear() - 2012;
 
 const main = (
   <div className={Styles.Main}>
-    <h1>About</h1>
+    <h1>A Passion for Coding</h1>
     <p>
-      Hi there, I am a software developer who has been following my passion ever
-      since first learning to code. I enjoy solving problems and creating
-      content that others enjoy.
+      Hi there, I am a software engineer who has been programming ever since I
+      stumbled upon the wonderful world of programming about {yearsProgramming}{" "}
+      years ago. I am always continuously learning and pushing towards mastery
+      of my craft.
     </p>
-
     <p>
-      I taught myself who has been programming as a hobby for over{" "}
-      {yearsProgramming}+ years. I originally studied electrical engineering at
-      St Cloud State University but later switch to computer science as I
-      relized my passion was in coding.
-    </p>
-
-    <p>
-      When I am not coding and old man winter finally decides to leave
-      Minnesota, you can often find me going for a quick run.
+      When I am not coding you can often find me outside on a quick run or being
+      lazy out at the cabin.
     </p>
   </div>
 );
