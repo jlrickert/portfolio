@@ -64,12 +64,10 @@ export class Project extends React.Component<Props, State> {
   };
 
   private handleOpenClick = () => {
-    console.debug("open");
     this.setState({ expanded: true });
   };
 
   private handleCloseClick = () => {
-    console.debug("close");
     this.setState({ expanded: false });
   };
 }

@@ -16,7 +16,6 @@ import { Home } from "../Home";
 import { About } from "../About";
 import { Portfolio } from "../Portfolio";
 import { Contact } from "../Contact";
-import { Resume } from "../Resume";
 
 import * as Styles from "./app.module.css";
 
@@ -45,10 +44,9 @@ class _App extends React.Component<Props, State> {
     const { location } = this.props;
 
     const routes: RouteData[] = [
-      { text: "Portfolio", path: "/projects", component: Portfolio },
       { text: "About", path: "/about", component: About },
+      { text: "Projects", path: "/projects", component: Portfolio },
       { text: "Contact", path: "/contact", component: Contact },
-      { text: "Resume", path: "/resume", component: Resume },
     ].map(route => ({
       ...route,
       active: location.pathname === route.path,
