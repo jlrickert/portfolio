@@ -7,6 +7,5 @@
 
 :local .Content {
   padding: 20px;
-  max-width: var(--max-width);
   margin: 0 auto;
 }

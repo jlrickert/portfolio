@@ -5,9 +5,21 @@
   border: 2px solid white;
   border-radius: 10%;
   margin: 15px;
+  cursor: zoom-out;
+}
+
+:local .Project.Expanded {
+  height: auto;
+  cursor: zoom-in;
+}
+
+:local .Project p,
+:local .Project h1 {
+  padding: 15px;
 }
 
 :local .Name {
+  text-align: center;
 }
 
 :local .ShortDescription {
@@ -19,6 +31,8 @@
 :local .Tech {
   position: absolute;
   bottom: 0;
+  width: 100%;
+  text-align: center;
 }
 
 :local .TechItem {
