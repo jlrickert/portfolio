@@ -25,6 +25,10 @@
   width: 300px;
 }
 
+:local .Portrait:hover {
+  transform: scale(1.025);
+}
+
 :local .Logo {
   text-align: center;
 }
