@@ -1,0 +1,48 @@
+@import "../../stylesheets/_variables.css";
+
+:local .About {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+:local .About h1 {
+  text-align: center;
+}
+
+:local .Main {
+}
+
+:local .Skillz {
+}
+
+:local .FlexSkillz {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+:local @media screen and (max-width 600px) {
+  :local .FlexSkillz {
+    flex-direction: column;
+  }
+}
+
+:local .SkillCategory {
+}
+
+:local .Skill {
+}
+
+:local .Books {
+}
+
+:local .Uncommon {
+  color: green;
+}
+
+:local .Epic {
+  color: purple;
+}
+
+:local .Legendary {
+  color: orange;
+}
