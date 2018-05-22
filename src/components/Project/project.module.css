@@ -1,0 +1,35 @@
+:local .Project {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border: 2px solid white;
+  border-radius: 10%;
+  margin: 15px;
+}
+
+:local .Name {
+}
+
+:local .ShortDescription {
+}
+
+:local .Description {
+}
+
+:local .Tech {
+  position: absolute;
+  bottom: 0;
+}
+
+:local .TechItem {
+  margin-right: 2px;
+  margin-left: 3px;
+  font-size: 75%;
+  font-style: italic;
+}
+
+:local @media screen and (max-width: 600px) {
+  :local .Project {
+    width: 300px;
+  }
+}

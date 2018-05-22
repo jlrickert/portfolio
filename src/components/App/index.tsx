@@ -14,7 +14,7 @@ import { Background } from "../Background";
 import { Header } from "../Header";
 import { Home } from "../Home";
 import { About } from "../About";
-import { ProjectList as Projects } from "../ProjectList";
+import { Portfolio } from "../Portfolio";
 import { Contact } from "../Contact";
 import { Resume } from "../Resume";
 
@@ -45,7 +45,7 @@ class _App extends React.Component<Props, State> {
     const { location } = this.props;
 
     const routes: RouteData[] = [
-      { text: "Projects", path: "/projects", component: Projects },
+      { text: "Portfolio", path: "/projects", component: Portfolio },
       { text: "About", path: "/about", component: About },
       { text: "Contact", path: "/contact", component: Contact },
       { text: "Resume", path: "/resume", component: Resume },
