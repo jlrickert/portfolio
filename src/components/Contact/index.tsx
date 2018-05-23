@@ -60,12 +60,12 @@ export class Contact extends React.Component<Props, State> {
 
     return (
       <div className={Styles.Contact}>
-        <h1>Contact</h1>
+        <h1>Let's talk</h1>
 
         {(this.state.returning && returningMessage) || (
           <p>
-            If you have any questions or would like to chat, please feel free to
-            shoot me an email using the form conveniently placed below.
+            If you have any great ideas or would like to just chat, please feel
+            free to shoot me an email using the form conveniently placed below.
           </p>
         )}
         <form

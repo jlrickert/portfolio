@@ -6,13 +6,25 @@ import { Project, Props as ProjectData } from "../Project";
 
 const projects: ProjectData[] = [
   {
+    name: "Rusty",
+    url: "https://github.com/jlrickert/rusty",
+    tech: ["rust"],
+    category: ["ai"],
+    shortDescription: "Bot written for the game halite 2",
+    description: `
+An experiment with rust by writing a bot to play the game halite 2. On major
+advantage that rust gave me is that I won many games for free because my bot
+would never crashed.
+    `,
+  },
+  {
     name: "DTS",
     tech: ["python", "MS-SQL"],
     category: ["Automation"],
     shortDescription: "Database that represents the state of the world",
     description: `
 The goal of this project is to use a central table that describes the state of
-the world and to sync that state to the world. 
+the world and to sync that state to the world.
 
 DTS is a python library where the user would describe a module that
 depends on a set a fields in the table and define functions that react to the

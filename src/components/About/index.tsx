@@ -57,6 +57,7 @@ const books = (
       <li>Compilers: Principles, Techniques, and Tools. (in progress)</li>
       <li>SICP</li>
       <li>Running Lean</li>
+      <li>Mastering Bitcoin</li>
     </ul>
   </div>
 );
