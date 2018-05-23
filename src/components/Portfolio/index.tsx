@@ -12,9 +12,9 @@ const projects: ProjectData[] = [
     category: ["ai"],
     shortDescription: "Bot written for the game halite 2",
     description: `
-An experiment with rust by writing a bot to play the game halite 2. On major
-advantage that rust gave me is that I won many games for free because my bot
-would never crashed.
+An experiment with rust by writing a bot to play the game halite 2. One major
+advantage that rust gave me is that my bot would never crash. As a result I
+won a few extra games because the other bots would occasionally crash.
     `,
   },
   {

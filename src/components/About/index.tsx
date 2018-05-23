@@ -14,8 +14,8 @@ const main = (
       of my craft.
     </p>
     <p>
-      When I am not coding you can often find me outside on a quick run or being
-      lazy out at the cabin.
+      When I am not coding you can often find me outside on a quick run or
+      hanging out at the cabin.
     </p>
   </div>
 );

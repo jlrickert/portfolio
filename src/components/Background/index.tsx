@@ -76,13 +76,18 @@ export class Background extends React.Component<Props, State> {
     const lights = [];
     for (let i = 0; i < this.props.lightCount; i += 1) {
       const position = Point.newRandomRange(-8, 8);
-      const light = new Light({ position, radius: 0.05, color: 0xfb88ee });
+      const color = this.randomColor();
+      const light = new Light({ position, radius: 0.05, color });
       const controller = new LightController(light);
       light.addToScene(scene);
       lights.push(controller);
     }
     return lights;
   }
+
+  private randomColor = () => {
+    return Math.random() * 0xffffff;
+  };
 
   private animate = (timestamp: number) => {
     this.lights.map(light => light.draw(timestamp));
