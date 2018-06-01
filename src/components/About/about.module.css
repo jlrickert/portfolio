@@ -20,7 +20,7 @@
   justify-content: space-evenly;
 }
 
-:local @media screen and (max-width 600px) {
+@media screen and (max-width 600px) {
   :local .FlexSkillz {
     flex-direction: column;
   }

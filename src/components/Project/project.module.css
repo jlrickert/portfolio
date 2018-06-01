@@ -42,7 +42,7 @@
   font-style: italic;
 }
 
-:local @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   :local .Project {
     width: 300px;
   }
