@@ -58,7 +58,7 @@ class _App extends React.Component<Props, State> {
 
     return (
       <Container className={Styles.App}>
-        <Background lightCount={100} />
+        {/* <Background lightCount={100} /> */}
         <Header routes={routes} />
         <section className={Styles.Content}>
           <Switch>
