@@ -36,6 +36,14 @@ export class Project extends React.Component<Props, State> {
 
     const nameWithUrl = <a href={url}>{name}</a>;
 
+    const paragraphs: React.ReactElement<
+      HTMLParagraphElement
+    >[] = this.findParagraphs(description).map((p, i) => (
+      <p key={i} className={Styles.Description}>
+        {p}
+      </p>
+    ));
+
     return (
       <div
         className={`${Styles.Project} ${expanded ? Styles.Expanded : ""}`}
@@ -43,7 +51,7 @@ export class Project extends React.Component<Props, State> {
       >
         <h1 className={Styles.Name}>{url ? nameWithUrl : name}</h1>
         <p className={Styles.ShortDescription}>{shortDescription}</p>
-        {expanded && <p className={Styles.Description}>{description}</p>}
+        {expanded && paragraphs}
         <div className={Styles.Tech}>
           {tech.map((t, i) => (
             <span key={i} className={Styles.TechItem}>
@@ -54,6 +62,30 @@ export class Project extends React.Component<Props, State> {
       </div>
     );
   }
+
+  private findParagraphs = (text: string): string[] => {
+    let paragraphs: string[] = [];
+    let paraStart = 0;
+
+    const textLength = text.length;
+    for (let i = 0; i < textLength; i += 1) {
+      const c = text[i];
+      if (
+        (text[i + 1] === "\n" && text[i + 2] === "\n") ||
+        text[i + 1] === undefined
+      ) {
+        const paraEnd = i;
+
+        let paragraph = text.slice(paraStart, paraEnd);
+        paragraphs.push(paragraph);
+
+        // find the start of the next paragraph
+        for (; text[i + 1] === "\n"; i += 1);
+        paraStart = i;
+      }
+    }
+    return paragraphs;
+  };
 
   private handleClick = () => {
     if (this.state.expanded) {

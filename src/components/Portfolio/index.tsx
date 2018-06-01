@@ -6,10 +6,28 @@ import { Project, Props as ProjectData } from "../Project";
 
 const projects: ProjectData[] = [
   {
+    name: "portfolio",
+    url: "https://github.com/jlrickert/portfolio",
+    tech: ["typescript", "react"],
+    category: ["frontend", "SEO"],
+    shortDescription: "My personal front page to the internet",
+    description: `
+I wanted a way to showcase the kinds of projects that I like to work on and also
+advertise my skillset. The very nature of this project means that It will always
+be a work in progress as my skills improve and interests change.
+
+One challenge that I ran into was problems with bots not able to view the
+contents of the page. This is a problem when it come to SEO and linking to
+my page in places such as LinkedIn as it renders my front page as a plain
+white page. One possible solution is to write a webpack plugin that will
+pre render the page.  It could also be possible to render each of the routes.
+    `,
+  },
+  {
     name: "Rusty",
     url: "https://github.com/jlrickert/rusty",
     tech: ["rust"],
-    category: ["ai"],
+    category: ["ai", "halite2"],
     shortDescription: "Bot written for the game halite 2",
     description: `
 An experiment with rust by writing a bot to play the game halite 2. One major
@@ -34,7 +52,7 @@ be called.  The function was often times a selenium script or a dump of the
 relevant information related to the task that needed to be complete.
 
 How the program accomplishes this task is to compute a merkle tree of the
-database and store it local.  The new merkle tree would then be compared to an
+database and store it locally.  The new merkle tree would then be compared to an
 old merkle tree to determine what fields have changed.  A diff could then be made
 between the two trees to quickly find out the differences.  Using the calculated
 difference the appropriate set of functions and the order need to be called are
@@ -46,6 +64,7 @@ tree would be updated until both trees are equivalent.
   {
     name: "Form Monster",
     tech: ["python", "wxpython"],
+    url: "https://github.com/jlrickert/form-monster",
     category: ["Desktop"],
     shortDescription: "A declarative way to quickly generate forms",
     description: `
@@ -62,7 +81,7 @@ The client would then enter information and would be able to submit when all
 information is validated.`,
   },
   {
-    name: "Arduino Sound recorder",
+    name: "Arduino Sound Recorder",
     tech: ["C", "ASM", "Arduino"],
     category: ["Hardware", "IOT"],
     shortDescription: "Arduino sound recorder",
@@ -73,7 +92,7 @@ gather data points about sound in a high altitude balloon to determine if
 their were any effects on amplitude and frequency. Later this project turned
 into exploring the arduino further.
 
-Originally it was build using the arduino libraries, but later switch to
+Originally it was built using the arduino libraries, but later switch to
 using only avr-toolchain and building everything from scratch that the arduino
 libraries provided.
     `,
