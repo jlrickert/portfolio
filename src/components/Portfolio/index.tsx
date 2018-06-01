@@ -2,6 +2,7 @@ import * as React from "react";
 
 import * as Styles from "./portfolio.module.css";
 
+import { Link } from "../Link";
 import { Project, Props as ProjectData } from "../Project";
 
 const projects: ProjectData[] = [
@@ -132,6 +133,11 @@ export class Portfolio extends React.Component<Props, {}> {
     return (
       <div className={Styles.Portfolio}>
         <h1>Portfolio</h1>
+        <p>
+          This is just a sample of some of the projects that I have done over
+          the years. You may also find more stuff on{" "}
+          <a href="https://github.com/jlrickert">github</a>.
+        </p>
         <div className={Styles.Projects}>
           {projects.map((proj, i) => <Project key={i} {...proj} />)}
         </div>

@@ -10,7 +10,7 @@ export interface Props extends LinkProps {
 
 export class Link extends React.Component<Props> {
   public render() {
-    const { to, className, isActive, onClick } = this.props;
+    const { className, isActive, onClick } = this.props;
     const active = (isActive && Styles.Active) || "";
     const props = { ...this.props };
     delete props["isActive"];
