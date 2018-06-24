@@ -69,14 +69,10 @@ export class Project extends React.Component<Props, State> {
 
     const textLength = text.length;
     for (let i = 0; i < textLength; i += 1) {
-      const c = text[i];
-      if (
-        (text[i + 1] === "\n" && text[i + 2] === "\n") ||
-        text[i + 1] === undefined
-      ) {
+      if (!text[i + 1] || (text[i + 1] === "\n" && text[i + 2] === "\n")) {
         const paraEnd = i;
 
-        let paragraph = text.slice(paraStart, paraEnd);
+        let paragraph = text.slice(paraStart, paraEnd + 1);
         paragraphs.push(paragraph);
 
         // find the start of the next paragraph
