@@ -1,12 +1,12 @@
 @import "../../stylesheets/_variables.css";
-
 :local .Header {
+  background-color: rgba(0, 0, 0, 0.75);
   top: 0;
-  left: 0;
-  right: 0;
+}
+
+:local .Wrapper {
   width: 100%;
   max-width: var(--max-width);
-  background-color: rgba(0, 0, 0, 0.75);
   overflow: hidden;
   display: grid;
   grid-template-columns: 80px auto 80px;
@@ -99,7 +99,7 @@
 }
 
 @media screen and (min-width: 600px) {
-  :local .Header {
+  :local .Wrapper {
     grid-template-columns: 80px 1fr 80px;
   }
 

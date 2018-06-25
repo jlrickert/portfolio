@@ -68,18 +68,20 @@ export class Header extends React.Component<Props, State> {
     const navOpen = navPopup ? Styles.Open : "";
 
     return (
-      <header className={`${Styles.Header} sticky`} role="banner">
-        <Logo />
-        <nav className={`${Styles.Navbar}`}>
-          <ul>{links}</ul>
-        </nav>
-        <MenuToggle
-          isActive={navPopup}
-          onClick={navPopup ? this.hideNavPopup : this.showNavPopup}
-        />
-        {this.state.navPopup && (
-          <Overlay routes={routes} onClose={this.hideNavPopup} />
-        )}
+      <header className={`${Styles.Header} sticky`}>
+        <div className={Styles.Wrapper} role="banner">
+          <Logo />
+          <nav className={`${Styles.Navbar}`}>
+            <ul>{links}</ul>
+          </nav>
+          <MenuToggle
+            isActive={navPopup}
+            onClick={navPopup ? this.hideNavPopup : this.showNavPopup}
+          />
+          {this.state.navPopup && (
+            <Overlay routes={routes} onClose={this.hideNavPopup} />
+          )}
+        </div>
       </header>
     );
   }
