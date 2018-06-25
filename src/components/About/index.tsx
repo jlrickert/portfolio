@@ -67,12 +67,12 @@ const skillz = (
         <h3>Frontend</h3>
         <ul>
           <li className={Styles.Uncommon}>Threejs (3/10)</li>
+          <li className={Styles.Epic}>HTML5 & CSS3 (7/10)</li>
           <li className={Styles.Legendary}>JavaScript (8/10)</li>
           <li className={Styles.Legendary}>
             React & Redux with Typescript (9/10)
           </li>
           <li className={Styles.Legendary}>Typescript (10/10)</li>
-          <li className={Styles.Legendary}>HTML5 & CSS3 (10/10)</li>
         </ul>
       </div>
 

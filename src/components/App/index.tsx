@@ -67,6 +67,7 @@ class _App extends React.Component<Props, State> {
             <Redirect from="*" to="/" />
           </Switch>
         </section>
+        <p className={Styles.Copyright}>Copyright Jared Rickert 2018</p>
       </Container>
     );
   }
