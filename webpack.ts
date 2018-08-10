@@ -8,24 +8,60 @@ const buildDir = path.resolve(__dirname, "dist");
 const cmd = process.argv[2];
 
 const config: Webpack.Configuration = {
+  target: "web",
   entry: "./src/index.ts",
   mode: cmd === "build" ? "production" : "development",
-  devtool: "inline-source-map",
+  devtool: "cheap-module-source-map",
   module: {
     rules: [
       {
         test: /\.ts/,
-        use: "ts-loader",
-        exclude: /node_modules/
+        use: ["source-map-loader"],
+        enforce: "pre"
+      },
+      {
+        oneOf: [
+          {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve("url-loader"),
+            options: {
+              limit: 10000,
+              name: "static/media/[name].[hash:8].[ext]"
+            }
+          },
+          {
+            test: /\.ts/,
+            use: [
+              {
+                loader: "ts-loader",
+                options: {
+                  transpileOnly: true
+                }
+              }
+            ]
+          },
+          {
+            test: /\.css$/,
+            exclude: /node_modules/,
+            use: [
+              { loader: "style-loader" },
+              { loader: "css-loader", options: { importLoaders: 1 } },
+              {
+                loader: "postcss-loader",
+                options: {
+                  ident: "postcss",
+                  plugins: () => [require("precss"), require("autoprefixer")]
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   resolve: {
     extensions: [".ts", ".js"]
   },
-  // devServer: {
-  //   contentBase: buildDir
-  // },
   output: {
     filename: "[name].bundle.js",
     path: buildDir
@@ -33,13 +69,9 @@ const config: Webpack.Configuration = {
   plugins: [new CleanWebpackPlugin([buildDir]), new HtmlWebpackPlugin({})]
 };
 
-console.log(cmd);
 if (cmd === "build") {
   const compiler = Webpack(config);
   compiler.run(() => {});
 } else if (cmd === "watch") {
   WebpackServe({}, { config }).then(res => {});
-  // compiler.watch({}, () => {
-  //   console.log("building");
-  // });
 }
